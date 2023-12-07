@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Conversion Calculator</title>
+    </head>
+    <style>
+        div {text-align: center;}
+        h1 {text-align: center; font-family: helvetica;}
+    </style>
+
+    <body>
+        <br><br><br><br><br><br><br><br>
+        <h1>CONVERSION CALCULATOR</h1>
+        <br>
+        <div style="font-family:verdana">
+        <label for="value">Enter Value:</label>
+        <input type="number" id="value">
+        </div>
+
+        <div style="font-family:verdana">
+        <br>
+        <label for="type">Select Conversion:</label>
+        <select id="type">
+         <option value="FahToCel">Fahrenheit to Celsius</option>
+         <option value="CelToFah">Celsius to Fahrenheit</option>
+         <option value="MetersToFeet">Meters to Feet</option>
+         <option value="FeetToMeters">Feet to Meters</option>
+        </select>
+        </div>
+
+        <br>
+        <div style="font-family:verdana">
+        <button onclick="convert()">Compute</button>
+        </div>
+        <br>
+        <div style="font-family:verdana;color:red" id="result"></div>
+        <br><br>
+
+        <div> <a style="font-family:verdana" href="index.html">Back to Home Page</a> </div>
+    
+    <script>
+        function convert() {
+            var value = parseFloat(document.getElementById("value").value);
+            var type = document.getElementById("type").value;
+            var result;
+
+            switch (type) {
+                case "FahToCel":
+                    result = (value-32)*5/9;
+                    document.getElementById("result").innerHTML = value + " Fahrenheit is converted to " + result.toFixed(2) + " Celsius";
+                    break;
+                case "CelToFah":
+                    result = (value*9/5)+32;
+                    document.getElementById("result").innerHTML = value + " Celsius is converted to " + result.toFixed(2) + " Fahrenheit";
+                    break;
+                case "MetersToFeet":
+                    result = value*3.28084;
+                    document.getElementById("result").innerHTML = value + " Meters is converted to " + result.toFixed(2) + " Feet";
+                    break;
+                case "FeetToMeters":
+                    result = value/3.28084;
+                    document.getElementById("result").innerHTML = value + " Feet is converted to " + result.toFixed(2) + " Meters";
+                    break;
+            }
+        }
+
+    </script>
+    </body>
+    </html>
