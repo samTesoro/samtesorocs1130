@@ -8,14 +8,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
+#asn {font-family: helvetica; font-size: 23px; text-decoration:none}
+a:hover{color:red}
 </style>
 <body>
 
 <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-red w3-card">
+  <div class="w3-bar w3-blue w3-card">
 
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">Program Assignments<i class="fa fa-caret-down"></i></button>     
@@ -38,23 +39,23 @@ body {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-content w3-animate-zoom" style="max-width:2000px;margin-top:46px">
 
    <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">CS 1130 - Introduction to Computing</h2>
-    <p class="w3-opacity"><i> <bold> by Sam Adrianne R. Tesoro of Class 1-B</bold></i></p>
-    <p class="w3-justify w3-center">You can view my JavaScript programs to comply for my requirements in CS 1130 - Introduction to Computing by John Roy A. Geralde here.</p>
+    <p class="w3-opacity" style="font-family:lato"><i> <bold> by Sam Adrianne R. Tesoro of Class 1-B</bold></i></p>
+    <p class="w3-justify w3-center" style="font-family:lato">You can view my JavaScript programs to comply for my requirements in CS 1130 - Introduction to Computing by John Roy A. Geralde here.</p>
     
       <br>
       <h2>
-      Student Assignments:  
+      Click to View:  
       </h2>
       <br>
-      <h3>Assignment #1 - Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to Meters)</h3>
-      <h3>Assignment #2 - Income Tax Calculator </h3>
-      <h3>Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural Numbers</h3>
-      <h3>Assignment #4 - Simple Payroll </h3>
+      <a id ="asn" href="computations.html">Assignment #1 - Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to Meters)</a><br><br>
+      <a id ="asn" href="income-tax.html">Assignment #2 - Income Tax Calculator </a><br><br>
+      <a id ="asn" href="nth.html">Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural Numbers</a><br><br>
+      <a id ="asn" href="payroll.html">Assignment #4 - Simple Payroll </a>
 
 
 
@@ -98,6 +99,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
 </script>
 
 </body>
