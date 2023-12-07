@@ -1,34 +1,50 @@
-<html>
+<!doctype html>
+<html lang="en">
+<meta charset=\\assets\\9f5d5f824865171ac2d5.png"UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <head>
-        <title>mth Factorial, Sum, and Average</title>
+        <title>Factorial, Sum, and Average Calculator</title>
     </head>
+
     <style>
         div {text-align: center;}
         h1 {text-align: center; font-family: helvetica;}
+        input {text-align: right;}
     </style>
 
-    <body> 
-        <br><br><br><br><br><br><br><br>
-        <h1>Nth FACTORIAL, SUM, AND AVERAGE</h1>
+    <body>
+        <!-- Navbar -->
+        <div class="w3-top">
+        <div class="w3-bar w3-red w3-card">
+           <a href="index.html" class="w3-padding-large w3-button w3-bar-item w3-button w3-hide-small">Home</a>
+        <div class="w3-dropdown-hover w3-hide-small">
+           <button class="w3-padding-large w3-button" title="More">Program Assignments<i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="computations.html" class="w3-bar-item w3-button">Simple Computations</a>
+            <a href="income-tax.html" class="w3-bar-item w3-button">Income Tax Calculator Program</a>
+            <a href="nth.html" class="w3-bar-item w3-button">Nth Factorial, Sum, and Average</a>
+            <a href="payroll.html" class="w3-bar-item w3-button">Simple Payroll</a>
+        </div></div></div></div></div> 
+
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <h1 class="w3-animate-top">Nth FACTORIAL, SUM, AND AVERAGE</h1>
         <br>
 
-        <div style="font-family:verdana">
+        <div class="w3-animate-zoom" style="font-family:verdana">
         <label for="number">Enter Number:</label>
         <input type="number" id="number" placeholder="Enter number">
-        </div>
-        <br>
-
-        <div style="font-family:verdana">
+        <br><br>
         <button onclick="compute()">Compute</button>
         </div>
-
-        <br>
+        <br><br>
         <div style="font-family:verdana;color:red" id="factorial"></div>
         <div style="font-family:verdana;color:red" id="sum"></div>
         <div style="font-family:verdana;color:red" id="average"></div>
         <br><br>
-
-        <div> <a style="font-family:verdana" href="index.html">Back to Home Page</a> </div>
 
     <script>
         function compute() {
@@ -43,19 +59,19 @@
                 factorial = factorial * i;
                 i++;
             }
-            document.getElementById("factorial").innerHTML = "The nth factorial of " + n + " is " + factorial;        
+            document.getElementById("factorial").innerHTML = "The nth factorial of " + n + " is " + factorial.toFixed(0);        
 
             do {
                 sum += k;
                 k++;
             } while (k <= n)
-            document.getElementById("sum").innerHTML = "The sum of the first " + n + " numbers is " + sum;
+            document.getElementById("sum").innerHTML = "The sum of the first " + n + " numbers is " + sum.toFixed(0);
 
             for (j = 1; j <= n; j++) {
                 total += j;
             }
             average = total / n;
-            document.getElementById("average").innerText = "The average of the first " + n + " numbers is " + average;
+            document.getElementById("average").innerText = "The average of the first " + n + " numbers is " + average.toFixed(0);
             document.getElementById("number").value = "";
          }
 
