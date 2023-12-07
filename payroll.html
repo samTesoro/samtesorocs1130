@@ -1,10 +1,19 @@
-<html>
+ <!doctype html>
+<html lang="en">
+<meta charset=\\assets\\9f5d5f824865171ac2d5.png"UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <head>
         <title>Simple Payroll</title>
     </head>
+
     <style>
         div {text-align: center; font-family:verdana}
         h1 {text-align: center; font-family: helvetica;}
+        input {text-align: right;}
         table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
@@ -19,10 +28,23 @@
         }
     </style>
 
-    <body> 
+    <body>
+        <!-- Navbar -->
+        <div class="w3-top">
+        <div class="w3-bar w3-red w3-card">
+           <a href="index.html" class="w3-padding-large w3-button w3-bar-item w3-button w3-hide-small">Home</a>
+        <div class="w3-dropdown-hover w3-hide-small">
+           <button class="w3-padding-large w3-button" title="More">Program Assignments<i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="computations.html" class="w3-bar-item w3-button">Simple Computations</a>
+            <a href="income-tax.html" class="w3-bar-item w3-button">Income Tax Calculator Program</a>
+            <a href="nth.html" class="w3-bar-item w3-button">Nth Factorial, Sum, and Average</a>
+            <a href="payroll.html" class="w3-bar-item w3-button">Simple Payroll</a>
+        </div></div></div></div></div>
+
         <br><br><br><br><br><br><br><br>
-        <h1>SIMPLE PAYROLL</h1>
-        <br><div>
+        <h1 class="w3-animate-top">SIMPLE PAYROLL</h1>
+        <br><div class="w3-animate-zoom">
 
         <label for="name">Employee Name:</label>
         <input type="text" id="name"><br><br>
@@ -37,7 +59,10 @@
         <input type="number" id="deductAmt"><br><br>
 
         <button onclick="addEmployee()">Add Employee</button>
-        <button onclick="delEmployee()">Delete Employee</button>
+        <button id="clearList">Clear List</button><br><br>
+        <label class="inputline" for="delitem">Delete Item:</label>
+        <input id="delitem" type="number"></input>
+        <button id="delEmployee">Delete</button>
         <br><br>
 
         <table id="payrollTable" border="3" bordercolor="DodgerBlue"  align="center">
@@ -55,17 +80,29 @@
         <tbody style="font-family:arial;" id="payrollBody"></tbody>
         </table>
         <br><br>
-        <div> <a style="font-family:verdana" href="index.html">Back to Home Page</a> </div>
 
-    <script>
+        <dialog id="dlgConfirmCancel">
+       <form method="dialog">
+       <h4 id="dlgmsg"></h4>   
+       <button id="btnConfirm" value="confirm" >Confirm</button>
+       <button id="btnCancel" value="cancel" >Cancel</button>
+        </form>
+        </dialog>
+
+    <script type="text/javascript">
         payroll = [];
         function addEmployee() {
             var name = document.getElementById("name").value;
-            var daysWorked = parseInt(document.getElementById("daysWorked").value);
-            var dailyRate = parseFloat(document.getElementById("dailyRate").value);
-            var deductAmt = parseFloat(document.getElementById("deductAmt").value);
-            var grossPay = daysWorked * dailyRate;
-            var netPay = grossPay - deductAmt;
+            var dW = parseInt(document.getElementById("daysWorked").value);
+            var dR = parseFloat(document.getElementById("dailyRate").value);
+            var dA = parseFloat(document.getElementById("deductAmt").value);
+            let daysWorked = dW.toFixed(0);
+            let dailyRate = dR.toFixed(2);
+            let deductAmt = dA.toFixed(2);
+            var gP = daysWorked * dailyRate;
+            let grossPay = gP.toFixed(2);
+            var nP = grossPay - deductAmt;
+            let netPay = nP.toFixed(2);
             employee = {name, daysWorked, dailyRate, deductAmt, grossPay, netPay};
             document.getElementById("daysWorked").value = "";
             document.getElementById("name").value = "";
@@ -75,16 +112,22 @@
             display();
         }
 
-        function delEmployee() {
-            line = parseInt(prompt("Enter line number to delete:")) - 1;
-            if (line >= 0 && line < payroll.length) {
-                payroll.splice(line, 1);
-                display(); }
-            else {
-                alert("Invalid.");
-            }
+        function emptyList(){
+            payroll=[];
         }
 
+        document.getElementById("delEmployee").addEventListener("click",
+        ()=>{
+        var x,l;
+        l = payroll.length;
+        x=document.getElementById("delitem").value*1;
+        --x;
+        if (x>=0 && x<l) { 
+        document.getElementById("dlgmsg").innerHTML="Delete the item?"  
+        dlgConfirmCancel.showModal();  
+        }
+        });
+   
         function display() {
             tableBody = document.getElementById("payrollBody");
             tableBody.innerHTML = "";
@@ -106,6 +149,42 @@
                 netPayCell.innerHTML = employee.netPay;
             });
         }
+
+        //Clears the List
+        document.getElementById("clearList").addEventListener("click",()=>{
+        document.getElementById("dlgmsg").innerHTML="Clear the list?"
+        dlgConfirmCancel.showModal();
+
+        });
+        btnConfirm.addEventListener("click", () => {
+        dlgConfirmCancel.returnValue="confirm";
+        dlgConfirmCancel.close("confirm");
+ 
+        });
+
+        btnCancel.addEventListener("click", () => {
+        dlgConfirmCancel.returnValue="cancel";
+        dlgConfirmCancel.close("cancel");
+ 
+        });
+
+        dlgConfirmCancel.addEventListener("close",(e)=>{
+        var rst=e.target.returnValue;
+        var lblmsg = document.getElementById("dlgmsg").innerHTML;
+        if (rst=="confirm") {
+            if (lblmsg=="Clear the list?" ){ 
+               emptyList();
+               display();
+            }  else if (lblmsg=="Delete the item?"){
+                var x=document.getElementById("delitem").value*1 - 1;
+                payroll.splice(x,1);
+                display();
+                document.getElementById("delitem").value='';
+
+            } 
+        }
+        
+        });   
     </script>
     </body>
     </html>
