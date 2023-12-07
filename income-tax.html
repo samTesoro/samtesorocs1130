@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Income Tax Calculator</title>
+    </head>
+    <style>
+        div {text-align: center;}
+        h1 {text-align: center; font-family: helvetica;}
+    </style>
+
+    <body>
+        <br><br><br><br><br><br><br><br>
+        <h1>INCOME TAX CALCULATOR</h1>
+        <br>
+
+        <div style="font-family:verdana">
+        <label for="income">Enter Taxable Income:</label>
+        <input type="number" id="income" placeholder="Enter income">
+        </div>
+
+        <br>
+        <div style="font-family:verdana">
+        <button onclick="convert()">Compute</button>
+        </div>
+        <br>
+        <div style="font-family:verdana;color:red" id="result"></div>
+        <br><br>
+
+        <div> <a style="font-family:verdana" href="index.html">Back to Home Page</a> </div>
+    
+    <script>
+        function convert() {
+            var income = parseFloat(document.getElementById("income").value);
+            var result = 0;
+
+                if (income <= 250000) {
+                    document.getElementById("result").innerHTML = "A Taxable Income of " + income + " has " + result.toFixed(2) + " Income Tax";                
+                    }
+                else if (income > 250000 && income <= 400000) {
+                    result = (income - 250000) * 0.20
+                    document.getElementById("result").innerHTML = "A Taxable Income of " + income + " has " + result.toFixed(2) + " Income Tax";
+                    }
+                else if (income > 400000 && income <= 800000) {
+                    result = (income - 400000) * 0.25 + 30000
+                    document.getElementById("result").innerHTML = "A Taxable Income of " + income + " has " + result.toFixed(2) + " Income Tax";
+                    }
+                else if (income > 800000 && income <= 2000000) {
+                    result = (income - 800000) * 0.30 + 130000
+                    document.getElementById("result").innerHTML = "A Taxable Income of " + income + " has " + result.toFixed(2) + " Income Tax"; 
+                    }
+                else if (income > 2000000 && income <= 8000000) {
+                    result = (income - 2000000) * 0.32 + 490000
+                    document.getElementById("result").innerHTML = "A Taxable Income of " + income + " has " + result.toFixed(2) + " Income Tax";    
+                    }
+                else if (income > 8000000) {
+                    result = (income - 8000000) * 0.35 + 2410000
+                    document.getElementById("result").innerHTML = "A Taxable Income of " + income + " has " + result.toFixed(2) + " Income Tax";
+                    }
+
+                document.getElementById("income").value = "";
+            }
+        
+
+    </script>
+    </body>
+    </html>
