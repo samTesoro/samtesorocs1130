@@ -60,7 +60,7 @@
 
         <button onclick="addEmployee()">Add Employee</button>
         <button id="clearList">Clear List</button><br><br>
-        <label class="inputline" for="delitem">Delete Item:</label>
+        <label class="inputline" for="delitem">Delete Employee:</label>
         <input id="delitem" type="number"></input>
         <button id="delEmployee">Delete</button>
         <br><br>
@@ -185,7 +185,7 @@
             if (lblmsg=="Clear the list?" ){ 
                emptyList();
                display();
-            }  else if (lblmsg=="Delete the item?"){
+            }  else if (lblmsg=="Delete the employee?"){
                 var x=document.getElementById("delitem").value*1 - 1;
                 payroll.splice(x,1);
                 display();
