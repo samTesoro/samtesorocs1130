@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>mth Factorial, Sum, and Average</title>
+    </head>
+    <style>
+        div {text-align: center;}
+        h1 {text-align: center; font-family: helvetica;}
+    </style>
+
+    <body> 
+        <br><br><br><br><br><br><br><br>
+        <h1>Nth FACTORIAL, SUM, AND AVERAGE</h1>
+        <br>
+
+        <div style="font-family:verdana">
+        <label for="number">Enter Number:</label>
+        <input type="number" id="number" placeholder="Enter number">
+        </div>
+        <br>
+
+        <div style="font-family:verdana">
+        <button onclick="compute()">Compute</button>
+        </div>
+
+        <br>
+        <div style="font-family:verdana;color:red" id="factorial"></div>
+        <div style="font-family:verdana;color:red" id="sum"></div>
+        <div style="font-family:verdana;color:red" id="average"></div>
+        <br><br>
+
+        <div> <a style="font-family:verdana" href="index.html">Back to Home Page</a> </div>
+
+    <script>
+        function compute() {
+            var n = parseInt(document.getElementById("number").value);
+            factorial = 1;
+            sum = 0;
+            total = 0;
+            i = 1;
+            k = 1;
+            
+            while (i <= n){
+                factorial = factorial * i;
+                i++;
+            }
+            document.getElementById("factorial").innerHTML = "The nth factorial of " + n + " is " + factorial;        
+
+            do {
+                sum += k;
+                k++;
+            } while (k <= n)
+            document.getElementById("sum").innerHTML = "The sum of the first " + n + " numbers is " + sum;
+
+            for (j = 1; j <= n; j++) {
+                total += j;
+            }
+            average = total / n;
+            document.getElementById("average").innerText = "The average of the first " + n + " numbers is " + average;
+            document.getElementById("number").value = "";
+         }
+
+    </script>
+    </body>
+    </html>
