@@ -30,7 +30,7 @@ a:hover {
 #bg {
     background-size: cover;
     background-color: white; 
-    background-image: linear-gradient(white, grey);
+    background-image: linear-gradient(grey, white);
 }
 
 table, th, td {
