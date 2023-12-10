@@ -25,6 +25,7 @@
             <a href="payroll.html" class="w3-bar-item w3-button">Simple Payroll</a>
         </div></div></div></div></div> 
 
+        <!-- Nth Factorial, Sum, and Average Calculator -->
         <br><br><br><br><br><br><br><br><br><br><br>
         <h1 class="w3-animate-top">Nth FACTORIAL, SUM, AND AVERAGE</h1>
         <br>
@@ -49,19 +50,22 @@
             total = 0;
             i = 1;
             k = 1;
-            
+
+            //While loop that calculates the nth factorial
             while (i <= n){
                 factorial = factorial * i;
                 i++;
             }
             document.getElementById("factorial").innerHTML = "The nth factorial of " + n + " is " + factorial.toFixed(0);        
 
+            //Do While loop that calculates the sum of the first n numbers
             do {
                 sum += k;
                 k++;
             } while (k <= n)
             document.getElementById("sum").innerHTML = "The sum of the first " + n + " numbers is " + sum.toFixed(0);
 
+            //For loop that calculates the average of the first n numbers
             for (j = 1; j <= n; j++) {
                 total += j;
             }
