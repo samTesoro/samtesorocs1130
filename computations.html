@@ -26,6 +26,7 @@
             <a href="payroll.html" class="w3-bar-item w3-button">Simple Payroll</a>
         </div></div></div></div></div>
 
+        <!-- Conversion Calculator -->
         <br><br><br><br><br><br><br><br><br><br><br>
         <h1 class="w3-animate-top">CONVERSION CALCULATOR</h1>
         <br>
@@ -34,6 +35,7 @@
         <input type="number" id="value">
         <br><br>
 
+        <!-- Selects which conversion to apply -->
         <label for="type">Select Conversion:</label>
         <select id="type">
             <option value="FahToCel">Fahrenheit to Celsius</option>
@@ -55,7 +57,7 @@
             var type = document.getElementById("type").value;
             var result;
 
-            //Switch statement that performs operations based on the selected operation
+            <!-- Switch statement that performs operations based on the selected operation -->
             switch (type) {
                 case "FahToCel":
                     result = (value-32)*5/9;
