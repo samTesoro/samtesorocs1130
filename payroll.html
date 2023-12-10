@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
 <meta charset=\\assets\\9f5d5f824865171ac2d5.png"UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,22 +25,28 @@
             <a href="payroll.html" class="w3-bar-item w3-button">Simple Payroll</a>
         </div></div></div></div></div>
 
+        <!-- Simple Payroll -->
         <br><br><br><br><br><br><br><br>
         <h1 class="w3-animate-top">SIMPLE PAYROLL</h1>
         <br><div class="w3-animate-zoom">
 
+        <!-- Input for Employee Name -->
         <label for="name">Employee Name:</label>
         <input type="text" id="name"><br><br>
 
+        <!-- Input for Days Worked -->
         <label for="daysWorked">Days Worked:</label>
         <input type="number" id="daysWorked"><br><br>
 
+        <!-- Input for Daily Rate -->
         <label for="dailyRate">Daily Rate:</label>
         <input type="number" id="dailyRate"><br><br>
 
+        <!-- Input for Deduction Amount -->
         <label for="deductAmt">Deduction Amount:</label>
         <input type="number" id="deductAmt"><br><br>
 
+        <!-- For Adding & Deleting Employees and Clearing the List -->
         <button onclick="addEmployee()">Add Employee</button>
         <button id="clearList">Clear List</button><br><br>
         <label class="inputline" for="delitem">Delete Employee:</label>
@@ -48,6 +54,7 @@
         <button id="delEmployee">Delete</button>
         <br><br>
 
+        <!-- Tabular Payroll -->
         <table id="payrollTable" border="3" bordercolor="DodgerBlue"  align="center">
         <thead>
             <tr>
@@ -64,7 +71,8 @@
         </table>
         <br><br>
 
-        <dialog id="dlgConfirmCancel">
+       <!-- Confirm & Cancel -->
+       <dialog id="dlgConfirmCancel">
        <form method="dialog">
        <h4 id="dlgmsg"></h4>   
        <button id="btnConfirm" value="confirm" >Confirm</button>
@@ -80,6 +88,7 @@
             var dR = parseFloat(document.getElementById("dailyRate").value);
             var dA = parseFloat(document.getElementById("deductAmt").value);
 
+            //Prompts and clears if input is invalid
             if (!name || isNaN(dW) || isNaN(dR) || isNaN(dA)) {
                 alert("Please fill in all fields with valid data.");
                 document.getElementById("daysWorked").value = "";
@@ -88,7 +97,7 @@
                 document.getElementById("deductAmt").value = "";
                 return;
             }
-         
+
             let daysWorked = dW.toFixed(0);
             let dailyRate = dR.toFixed(2);
             let deductAmt = dA.toFixed(2);
@@ -109,6 +118,7 @@
             payroll=[];
         }
 
+        //For deleting employee
         document.getElementById("delEmployee").addEventListener("click",
         ()=>{
         var x,l;
@@ -120,7 +130,8 @@
         dlgConfirmCancel.showModal();  
         }
         });
-   
+
+        //For adding employee
         function display() {
             tableBody = document.getElementById("payrollBody");
             tableBody.innerHTML = "";
@@ -143,22 +154,20 @@
             });
         }
 
-        //Clears the List
+        //Clears the list
         document.getElementById("clearList").addEventListener("click",()=>{
         document.getElementById("dlgmsg").innerHTML="Clear the list?"
         dlgConfirmCancel.showModal();
-
         });
+
         btnConfirm.addEventListener("click", () => {
         dlgConfirmCancel.returnValue="confirm";
         dlgConfirmCancel.close("confirm");
- 
         });
 
         btnCancel.addEventListener("click", () => {
         dlgConfirmCancel.returnValue="cancel";
         dlgConfirmCancel.close("cancel");
- 
         });
 
         dlgConfirmCancel.addEventListener("close",(e)=>{
@@ -173,11 +182,10 @@
                 payroll.splice(x,1);
                 display();
                 document.getElementById("delitem").value='';
-
             } 
         }
-        
-        });   
+    });   
+     
     </script>
     </body>
     </html>
